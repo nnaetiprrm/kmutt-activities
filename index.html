@@ -42,15 +42,16 @@
         /* ------------------ FIXED BACKGROUNDS ------------------ */
         .header-bg {
             position: absolute;
-            top: 0;
+            top: 45%;
             left: 0;
+            transform: translateY(-50%);
             width: 100%;
-            height: 50%;
-            background-image: url('pic/พระจอมเกล้า.png');
+            height: 68%;
+            background-image: url('pic/KMUTT.png');
             background-size: cover;
             background-position: center;
-            z-index: 1;
-            opacity: 0.85;
+            z-index: 2;
+            opacity: 1;
             pointer-events: none;
         }
 
@@ -59,10 +60,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 25%;
-            background-image: url('pic/foter.png');
+            height: 30%;
+            background-image: url('pic/newBG2.jpeg');
             background-size: cover;
-            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-position: center bottom;
             z-index: 1;
             opacity: 0.95;
             pointer-events: none;
@@ -75,18 +77,18 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(180deg, 
-                rgba(255, 255, 255, 0.96) 0%, 
-                rgba(255, 255, 255, 0.86) 35%, 
-                rgba(255, 255, 255, 0.86) 65%, 
+                rgba(255, 255, 255, 0.55) 0%, 
+                rgba(255, 255, 255, 0.65) 45%, 
+                rgba(255, 255, 255, 0.85) 75%, 
                 rgba(255, 255, 255, 0.98) 100%);
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
         }
 
         /* ------------------ CONTENT WRAPPER ------------------ */
         .content-wrapper {
             position: relative;
-            z-index: 3;
+            z-index: 4;
             padding: 40px 80px 20px 80px;
             display: flex;
             flex-direction: column;
@@ -111,13 +113,13 @@
         }
 
         h1.activities-title .orange-c {
-            color: #FF7700;
+            color: #e74011;
         }
 
         .sub-title {
             font-size: 22px;
             font-weight: 600;
-            color: #6e6e73;
+            color: #4a4a4f;
             letter-spacing: -0.01em;
         }
 
@@ -178,7 +180,7 @@
             height: 190px;
         }
 
-        /* กรณีมี 2 รูป: วางคู่กันซ้าย-ขวา (เหมือนแถวบนของแบบ 3 รูปเป๊ะ) ขนาดไม่ยืด */
+        /* กรณีมี 2 รูป: วางคู่กันซ้าย-ขวา */
         .activity-img-grid.count-2 {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -186,7 +188,7 @@
             height: 90px;
         }
 
-        /* กรณีมี 3 รูป: 2 รูปบน (เหมือนแบบ 2 รูป), รูปที่ 3 อยู่ล่างซ้ายขนาดเท่ากัน */
+        /* กรณีมี 3 รูป */
         .activity-img-grid.count-3 {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -236,7 +238,7 @@
         /* ข้อความตัวหนังสือสีเทาเล็กๆ ใต้รูป */
         .img-hint {
             font-size: 11px;
-            color: #86868b;
+            color: #6e6e73;
             text-align: center;
             font-weight: 400;
             letter-spacing: 0.02em;
@@ -254,7 +256,7 @@
         .activity-date {
             font-size: 13px;
             font-weight: 600;
-            color: #FF7700;
+            color: #e74011;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
@@ -269,7 +271,7 @@
         .activity-desc {
             font-size: 15px;
             font-weight: 400;
-            color: #6e6e73;
+            color: #4a4a4f;
             line-height: 1.6;
             max-width: 700px;
         }
@@ -282,7 +284,7 @@
             font-size: 12px;
             color: #86868b;
             font-weight: 500;
-            z-index: 3;
+            z-index: 4;
             pointer-events: none;
         }
 
@@ -343,9 +345,9 @@
         .closing-remark {
             margin-top: 30px;
             padding-top: 25px;
-            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
             font-size: 13px;
-            color: #86868b;
+            color: #6e6e73;
             line-height: 1.7;
             max-width: 1020px;
             font-weight: 400;
@@ -367,197 +369,113 @@
                 <h2 class="sub-title">กิจกรรมนอกเหนือเพิ่มเติม</h2>
             </div>
 
-            <!-- พื้นที่เลื่อนเฉพาะรายการกิจกรรม (เทมเพรด 10 กิจกรรม) -->
+            <!-- พื้นที่เลื่อนเฉพาะรายการกิจกรรม -->
             <div class="activities-scroll-container">
                 
-                <!-- กิจกรรมที่ 1 (ตัวอย่าง: ใส่ 2 รูปภาพ จัดวางคู่กันซ้าย-ขวา เหมือนแถวบนของแบบ 3 รูป) -->
+                <!-- กิจกรรมที่ 1 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
-                      <div class="activity-img-grid count-more">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปีใหม่/ปีใหม่4.jpg" alt="Img 1"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปีใหม่/ปีใหม่1.jpg" alt="Img 2"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปีใหม่/ปีใหม่3.jpg" alt="Img 3"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปีใหม่/ปีใหม่2.jpg" alt="Img 4"></div>
+                      <div class="activity-img-grid count-2">
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปฐม/IMG_6125.JPG" alt="Img 1"></div>
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปฐม/IMG_6126 2.JPG" alt="Img 2"></div>
+                            
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 1</span>
-                        <h3 class="activity-title">กิจกรรมปีใหม่/วันเด็ก ประจำปีการศึกษา2569</h3>
-                        <p class="activity-desc">ปฏิบัติหน้าที่ในคณะกรรมการสภานักเรียน ในงานปีใหม่/วันเด็ก ประจำปีการศึกษา2569 ในการดำเนินงานต่างๆตั้งแต่ต้นจนจบกิจกรรม อำนวยความสะดวกต่างๆ และดูแลความเรียบร้อยภายในงาน </p>
+                        <h3 class="activity-title">กิจกรรมปฐมนิเทศ “รับลูกเรือ” ประจำปีการศึกษา 2569</h3>
+                        <p class="activity-desc">ปฏิบัติหน้าที่คณะกรรมการสภานักเรียนในกิจกรรมปฐมนิเทศ “รับลูกเรือ” ประจำปีการศึกษา 2569 โดยได้รับมอบหมายให้เป็นพี่เลี้ยงดูแลนักเรียนชั้นมัธยมศึกษาปีที่ 1/4 ทำหน้าที่อำนวยความสะดวก ควบคุมดูแลความเรียบร้อย สร้างความสนุกสนาน และนำพานักเรียนเข้าร่วมกิจกรรมฐานต่าง ๆ ให้เป็นไปอย่างราบรื่นและปลอดภัย  </p>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 2 (ตัวอย่าง: ใส่ 3 รูปภาพ) -->
+                <!-- กิจกรรมที่ 2 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
                         <div class="activity-img-grid count-2">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/สมาคมกีฬาจังหวัด/สมาคม.jpg" alt="Activity 2-1"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/สมาคมกีฬาจังหวัด/สมาคม2.jpg" alt="Activity 2-2"></div>
-                           
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/เลือกตั้ง2/IMG_8589 2.JPG" alt="Activity 2-1"></div>
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/เลือกตั้ง/1.JPG" alt="Activity 2-2"></div>
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 2</span>
-                        <h3 class="activity-title">สวนสนามพิธีเปิดงานสมาคมกีฬา จังหวัดสมุทรสงคราม</h3>
-                        <p class="activity-desc">ได้รับการคัดเลือกให้เป็นหนึ่งในตัวแทนของวงโยธวาทิตโรงเรียนถาวรานุกูล ในพิธีเปิดสวนสนามงานสมาคมกีฬา จังหวัดสมุทรสงคราม</p>
+                        <h3 class="activity-title">การเลือกตั้งคณะกรรมการสภานักเรียน ประจำปีการศึกษา 2569</h3>
+                        <p class="activity-desc">ปฏิบัติหน้าที่คณะกรรมการสภานักเรียนในการกำกับดูแล อำนวยความสะดวก และควบคุมความเรียบร้อยของการเลือกตั้งคณะกรรมการสภานักเรียน ประจำปีการศึกษา 2569 เพื่อให้การดำเนินงานเป็นไปด้วยความโปร่งใส ยุติธรรม และเป็นระเบียบเรียบร้อย</p>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 3 (ตัวอย่าง: ใส่ 4 รูปภาพ) -->
+                <!-- กิจกรรมที่ 3 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-3">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาอวุโส/โส1.jpg" alt="Img 1"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาอวุโส/โส2.jpg" alt="Img 2"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาอวุโส/โส3.jpg" alt="Img 3"></div>
-    
+                        <div class="activity-img-grid count-1">
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ลอยกระทง/IMG_8595 2.JPG" alt="Img 1"></div>
+                   
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 3</span>
-                        <h3 class="activity-title">สวนสนามพิธีเปิดงานกีฬาอาวุโส</h3>
-                        <p class="activity-desc">ได้รับการคัดเลือกให้เป็นหนึ่งในตัวแทนของวงโยธวาทิตโรงเรียนถาวรานุกูล พิธีเปิดงานสวนสนามงานกีฬาอาวุโส </p>
+                        <h3 class="activity-title">พิกุลรัตน์วัฒน์ยืนยง</h3>
+                        <p class="activity-desc">ปฏิบัติหน้าที่คณะกรรมการสภานักเรียนในการวางแผนและดำเนินงานจัดกิจกรรม “พิกุลรัตน์วัฒน์ยืนยง” เพื่อร่วมอนุรักษ์และสืบสานประเพณีลอยกระทงอันดีงามของไทยให้ดำเนินไปอย่างเรียบร้อย</p>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 4 (1 รูปเดี่ยว) -->
+                <!-- กิจกรรมที่ 4 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
-                         <div class="activity-img-grid count-3">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/แข่งฟุตบอล/ฟุตบอล1.jpg" alt="Activity 2-1"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/แข่งฟุตบอล/ฟุตบอล2.jpg" alt="Activity 2-2"></div>
-                              <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/แข่งฟุตบอล/ฟุตบอล3.jpg" alt="Activity 2-2"></div>
+                         <div class="activity-img-grid count-2">
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ประชุม/IMG_8592 2.JPG" alt="Activity 2-1"></div>
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ประชุม/IMG_8593 2.JPG" alt="Activity 2-2"></div>
+                            
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 4</span>
-                        <h3 class="activity-title">สวนสนามพิธีเปิดงานการแข่งขันฟุตบอล SAMUTSONGKHRAM MOLLEAGUE ครั้งที่2 </h3>
-                        <p class="activity-desc">ได้รับการคัดเลือกให้เป็นหนึ่งในตัวแทนของวงโยธวาทิตโรงเรียนถาวรานุกูล ในพิธีสวนสนามพิธีเปิดงานการแข่งขันฟุตบอล SAMUTSONGKHRAM MOLLEAGUE ครั้งที่2</p>
+                        <h3 class="activity-title">ประชุมผู้ปกครอง</h3>
+                        <p class="activity-desc">ปฏิบัติหน้าที่ในฐานะคณะกรรมการสภานักเรียนในการต้อนรับ ให้ข้อมูล และอำนวยความสะดวกด้านสถานที่และการจราจรแก่ผู้ปกครองที่เดินทางมาเข้าร่วมการประชุมผู้ปกครอง ประจำปีการศึกษา 2569 ให้เป็นไปด้วยความเรียบร้อย</p>
                     </div>
                 </div>
 
                 <!-- กิจกรรมที่ 5 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-2">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/บวชหมู่/บวชหมู่1.jpg" alt="Activity 5"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/บวชหมู่/บวชหมู่2.jpg" alt="Activity 5"></div>
-                       
+                        <div class="activity-img-grid count-1">
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/มุฑิ/IMG_8587 2.JPG" alt="Activity 5"></div>
+                     
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 5</span>
-                        <h3 class="activity-title">งานอุปสมบทหมู่ ณ วัดป้อมแก้ว</h3>
-                        <p class="activity-desc">ได้รับการคัดเลือกให้เป็นหนึ่งในตัวแทนของวงโยธวาทิตโรงเรียนเพื่อเดินทางไปบรรเลงดนตรีในงานอุปสมบทหมู่ ณ วัดป้อมแก้ว</p>
+                        <h3 class="activity-title">พิธีมุทิตาจิตแสดงกตเวทิตาคุณ</h3>
+                        <p class="activity-desc">ปฏิบัติหน้าที่คณะกรรมการสภานักเรียนในการจัดเตรียมสถานที่ อำนวยความสะดวก และควบคุมดูแลความเรียบร้อยตลอดพิธีมุทิตาจิต เพื่อแสดงความกตัญญูกตเวทีแด่คณะครูผู้เกษียณอายุราชการ ให้ดำเนินไปอย่างสมเกียรติและลุล่วงด้วยดี</p>
                     </div>
                 </div>
 
                 <!-- กิจกรรมที่ 6 -->
                 <div class="activity-item">
                     <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-2">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ไหว้ครู/ไหว้ครู1.jpg" alt="Activity 6"></div>
-                              <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ไหว้ครู/ไหว้ครู2.jpg" alt="Activity 6"></div>
+                        <div class="activity-img-grid count-1">
+                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ทำบุญ/IMG_4204 2.JPG" alt="Activity 6"></div>
+                            
                         </div>
                         <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
                     </div>
                     <div class="activity-info">
                         <span class="activity-date">กิจกรรมที่ 6</span>
-                        <h3 class="activity-title">พิธีไหว้ครู ปีการศึกษา 2567 </h3>
-                        <p class="activity-desc">ได้ร่วมบรรเลงดนตรีภายในงานพิธีไหว้ครู ประจำปีการศึกษา 2567 </p>
+                        <h3 class="activity-title">พิธีทำบุญปัณรสมวารและพิธีสมโภชรูปหล่อสมภารเที่ยง ปัณฑิโต</h3>
+                        <p class="activity-desc">ได้รับคัดเลือกให้เป็นหนึ่งในผู้แทนคณะกรรมการสภานักเรียนร่วมถวายเครื่องสังฆทานและผ้าไตรแด่พระสงฆ์ เนื่องในพิธีทำบุญปัณรสมวาร (15 วัน) เพื่อถวายเป็นพระราชกุศลแด่สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง และพิธีสมโภชรูปหล่อสมภารเที่ยง ปัณฑิโต</p>
                     </div>
                 </div>
 
-                <!-- กิจกรรมที่ 7 -->
-                <div class="activity-item">
-                    <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-3">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาสี/กีฬาสี1.jpg" alt="Activity 7"></div>
-                             <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาสี/กีฬาสี2.jpg" alt="Activity 7"></div>
-                              <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/กีฬาสี/กีฬาสี3.jpg" alt="Activity 7"></div>
-                        </div>
-                        <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
-                    </div>
-                    <div class="activity-info">
-                        <span class="activity-date">กิจกรรมที่ 7</span>
-                        <h3 class="activity-title">สวนสนามพิธีเปิดงานกีฬาสี โรงเรียนถาวรานุกูล ปีการศึกษา 2568</h3>
-                        <p class="activity-desc">ได้รับการคัดเลือกให้เป็นหนึ่งในตัวแทนของวงโยธวาทิตโรงเรียนถาวรานุกูล ในขบวนแห่สีฬาสีและพิธีสวนสนามพิธีเปิดงานกีฬาสี ประจำปีการศึกษา 2568</p>
-                    </div>
                 </div>
 
-                <!-- กิจกรรมที่ 8 -->
-                <div class="activity-item">
-                    <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-3">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปฐม/ปฐม1.jpg" alt="Activity 8"></div>
-                               <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปฐม/ปฐม2.jpg" alt="Activity 8"></div>
-                                  <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/ปฐม/ปฐม3.jpg" alt="Activity 8"></div>
-                        </div>
-                        <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
-                    </div>
-                    <div class="activity-info">
-                        <span class="activity-date">กิจกรรมที่ 8</span>
-                        <h3 class="activity-title">งานปฐมนิเทศรับลูกเรือ THN Student Orientation 2024</h3>
-                        <p class="activity-desc">ได้รับคัดเลือกให้ปฏิบัติหน้าที่บรรเลงดนตรีเพื่อสร้างสีสันและความสนุกสนานให้กับนักเรียนชั้นมัธยมศึกษาปีที่1 ที่เดินทางมาเข้าร่วมงานปฐมนิเทศรับลูกเรือโรงเรียนถาวรานุกูล ปีการศึกษา 2567</p>
-                    </div>
-                </div>
-
-                <!-- กิจกรรมที่ 9 -->
-                <div class="activity-item">
-                    <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-more">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมดนตรี/อบรม1.jpg" alt="Activity 9"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมดนตรี/อบรม2.jpg" alt="Activity 9"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมดนตรี/อบรม4.jpg" alt="Activity 9"></div>
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมดนตรี/อบรม5.jpg" alt="Activity 9"></div>
-                        </div>
-                        <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
-                    </div>
-                    <div class="activity-info">
-                        <span class="activity-date">กิจกรรมที่ 9</span>
-                        <h3 class="activity-title">เข้าร่วมการอบรมเชิงปฏิบัติการ “สัปดาห์ศิลป์” </h3>
-                        <p class="activity-desc">เข้าร่วมการอบรมเชิงปฏิบัติการ “สัปดาห์ศิลป์” โดยได้รับความรู้และ
-ประสบการณ์เกี่ยวกับกระบวนการทำงานด้านดนตรี ทั้งในส่วนของการ
-ทำงานเบื้องหลังและการปฏิบัติงานบนเวที ซึ่งช่วยพัฒนาทักษะการ
-ทำงานเป็นทีม ความรับผิดชอบ และความเข้าใจในกระบวนการจัดการ
-แสดงอย่างเป็นระบบ และมีการถ่ายทอดสดเพื่อประชาสัมพันธ์งาน วิ่ง 100ปีถาวรานุกูล  100year thawara run </p>
-                    </div>
-                </div>
-
-                <!-- กิจกรรมที่ 10 -->
-                <div class="activity-item">
-                    <div class="activity-img-wrapper">
-                        <div class="activity-img-grid count-3">
-                            <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมวงโย/โย1.jpg" alt="Activity 10"></div>
-                               <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมวงโย/โย2.jpg" alt="Activity 10"></div>
-                                  <div class="activity-img-box" onclick="openLightbox(this.querySelector('img'))"><img src="pic/อบรมวงโย/โย3.jpg" alt="Activity 10"></div>
-                        </div>
-                        <span class="img-hint">คลิกเพื่อดูรูปภาพ</span>
-                    </div>
-                    <div class="activity-info">
-                        <span class="activity-date">กิจกรรมที่ 10</span>
-                        <h3 class="activity-title">เข้าร่วมการอบรมปรับพื้นฐานสนตรีสากล</h3>
-                        <p class="activity-desc">เข้าร่วมการอบรมปรับพื้นฐานดนตรีสากล โดยได้รับความรู้เกี่ยวกับ
-หน้าที่และบทบาทของเครื่องดนตรีแต่ละประเภทในวงโยธวาทิต รวมถึง
-การฝึกวอร์มอัพ และพื้นฐานการบรรเลง เพื่อพัฒนาความรู้และทักษะ
-ในการปฏิบัติดนตรีร่วมกับผู้อื่น</p>
-                    </div>
-                </div>
-
-                <div class="closing-remark">
-                    กิจกรรมเพิ่มเติมต่างๆ แสดงถึงความตระตือรือล้นในการเรียนรู้สิ่งใหม่ๆ อยู่เสมอ ดนตรีฝึกให้กล้าทดลองผสมผสานเสียงใหม่ๆ เช่นเดียวกับการพัฒนาเว็บหรือแอปพลิเคชัน ที่ต้องอาศัยความคิดสร้างสรรค์ในการออกแบบประสบการณ์ผู้ใช้งาน (UI/UX) และการแก้ปัญหาโจทย์ทางเทคโนโลยีด้วยวิธีที่ยืดหยุ่นและแปลกใหม่ การแก้ปัญหาเฉพาะหน้า การรับมือกับความกดดัน และการทำงานร่วมกันเป็นทีม เพราะวงดนตรีไม่สามารถบรรเลงด้วยตัวคนเดียวได้
-
-                </div>
-
-            </div>
+              
 
             <div class="footer-section">
-                <span>King Mongkut's University of Technology North Bangkok</span>
+                <span>King Mongkut's University of Technology Thonburi</span>
             </div>
         </div>
     </div>
