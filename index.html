@@ -27,6 +27,68 @@
             overflow: hidden;
         }
 
+        /* ------------------ PRELOADER / WELCOME SCREEN ------------------ */
+        .welcome-preloader {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100dvh;
+            background: linear-gradient(135deg, #f25525 0%, #e74011 55%, #c73208 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            padding: 24px;
+            text-align: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+        }
+
+        .welcome-preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .welcome-text {
+            color: #ffffff;
+            font-size: clamp(22px, 3.8vw, 38px);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            animation: welcomeFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .loader-spinner {
+            width: 46px;
+            height: 46px;
+            border: 4px solid rgba(255, 255, 255, 0.28);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spinLoader 0.85s linear infinite;
+        }
+
+        @keyframes spinLoader {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes welcomeFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* กรอบหน้าเว็บหลัก */
         .page-container {
             position: relative;
@@ -47,7 +109,7 @@
             transform: translateY(-50%);
             width: 100%;
             height: 68%;
-            background-image: url('pic/KMUTT.png');
+            background-image: url('pic/KMUTTBG.png');
             background-size: cover;
             background-position: center;
             z-index: 2;
@@ -428,6 +490,12 @@
 </head>
 <body>
 
+    <!-- หน้าโหลดต้อนรับคณะกรรมการ -->
+    <div class="welcome-preloader" id="welcomePreloader">
+        <p class="welcome-text">ยินดีต้อนรับท่านคณะกรรมการทุกท่าน</p>
+        <div class="loader-spinner" aria-label="กำลังโหลด"></div>
+    </div>
+
     <div class="page-container">
         <!-- ภาพพื้นหลังตรึงตำแหน่ง -->
         <div class="header-bg"></div>
@@ -553,6 +621,18 @@
     </div>
 
     <script>
+        // ควบคุมหน้าโหลดต้อนรับให้ค่อยๆ จางหายไปเมื่อโหลดเสร็จ
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('welcomePreloader');
+            setTimeout(function () {
+                preloader.classList.add('fade-out');
+                // ลบออกจาก DOM หลังแอนิเมชันจางจบเพื่อไม่ให้กินทรัพยากรเครื่อง
+                setTimeout(function () {
+                    preloader.remove();
+                }, 850);
+            }, 1800); // แสดงค้างไว้ 1.8 วินาทีก่อนเริ่มจาง (ปรับตัวเลขนี้ได้ตามต้องการ)
+        });
+
         function openLightbox(imgElement) {
             const overlay = document.getElementById('lightboxOverlay');
             const lightboxImg = document.getElementById('lightboxImg');
